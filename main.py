@@ -28,4 +28,8 @@ def recommend_song(artist):
 if __name__ == '__main__':
   song = recommend_song(get_artist('pantelis pantelidis'))
   print(song['name'], '-', song['artists'][0]['name'])
-  playsound(song['preview_url'])
+
+  if song['preview_url'] is not None:
+    playsound(song['preview_url'])
+  else:
+    print('No preview: please try again')
